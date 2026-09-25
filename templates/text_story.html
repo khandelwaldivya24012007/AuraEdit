@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Edit | Forge Your Words</title>
+    <link rel="stylesheet" href="/static/text_story.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <div class="page-background-overlay"></div>
+    <div id="full-screen-snow" class="snow-effect active"></div>
+
+    <div class="stark-workspace">
+        
+        <div class="panel input-panel animated-panel">
+            <h2 class="panel-title">Aura AI Canvas</h2>
+            
+            <div class="input-wrapper">
+                <div class="generator-tools" style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <select id="story-theme" style="flex: 2; margin-bottom: 0; padding: 10px; font-size: 13px; background: #0a0a0a; color: #fff; border: 1px solid #333; border-radius: 4px;">
+                        <option value="minimalist">Template: Minimalist Quote</option>
+                        <option value="cyberpunk">Template: Neon Cyberpunk</option>
+                        <option value="ethereal">Template: Ethereal Poetry</option>
+                        <option value="motivational">Template: Modern Motivation</option>
+                    </select>
+                    <button id="btn-generate" class="btn btn-secondary" style="flex: 1; padding: 10px; font-size: 12px;">Generate</button>
+                </div>
+
+                <textarea id="story-input" placeholder="Type your text here, or select a template and let Aura AI generate it..."></textarea>
+                <div class="char-count">Words: <span id="word-count">0</span></div>
+            </div>
+            
+            <a href="/" class="back-link">← Return to Dashboard</a>
+        </div>
+
+        <div class="panel preview-panel animated-panel">
+            <h2 class="panel-title text-center">Live Preview</h2>
+            
+            <div class="canvas-container">
+                <div id="export-target" class="story-canvas theme-snow vignette">
+                    <div id="snow-overlay" class="snow-effect active"></div>
+                    <div id="grain-overlay" class="grain-effect"></div>
+                    
+                    <div id="story-text-container" class="align-center v-center cinzel">
+                        <p id="story-text">Your generated aesthetic will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel controls-panel animated-panel">
+            <div class="control-card animated-card">
+                <h3>Typography</h3>
+                <label>Font Family</label>
+                <select id="ctrl-font">
+                    <option value="cinzel">Cinematic (Cinzel)</option>
+                    <option value="playfair">Elegant (Playfair)</option>
+                    <option value="montserrat">Modern (Montserrat)</option>
+                </select>
+                <label>Font Size</label>
+                <input type="range" id="ctrl-size" min="16" max="60" value="28">
+                <label>Line Spacing</label>
+                <input type="range" id="ctrl-spacing" min="1" max="3" step="0.1" value="1.5">
+            </div>
+
+            <div class="control-card animated-card">
+                <h3>Layout Alignment</h3>
+                <div class="button-group">
+                    <button class="icon-btn active" onclick="setLayout('text-align', 'center', this)">Center</button>
+                    <button class="icon-btn" onclick="setLayout('text-align', 'left', this)">Left</button>
+                    <button class="icon-btn" onclick="setLayout('text-align', 'right', this)">Right</button>
+                </div>
+                <div class="button-group mt-10">
+                    <button class="icon-btn" onclick="setLayout('justify-content', 'flex-start', this)">Top</button>
+                    <button class="icon-btn active" onclick="setLayout('justify-content', 'center', this)">Middle</button>
+                    <button class="icon-btn" onclick="setLayout('justify-content', 'flex-end', this)">Bottom</button>
+                </div>
+            </div>
+
+            <div class="control-card animated-card">
+                <h3>Canvas Atmosphere</h3>
+                <label>Background Theme</label>
+                <select id="ctrl-bg">
+                    <option value="theme-snow">Midnight Gradient</option>
+                    <option value="theme-dark">Pure Pitch Black</option>
+                    <option value="theme-fog">Urban Fog</option>
+                </select>
+
+                <label class="toggle-label mt-10">
+                    <input type="checkbox" id="ctrl-snow" checked> Particle Overlay
+                </label>
+                <label class="toggle-label">
+                    <input type="checkbox" id="ctrl-vignette" checked> Edge Shadow (Vignette)
+                </label>
+                <label class="toggle-label">
+                    <input type="checkbox" id="ctrl-grain"> Analog Film Grain
+                </label>
+            </div>
+        </div>
+
+        <div class="action-bar animated-panel">
+            <button id="btn-reset" class="btn btn-secondary">Clear</button>
+            <button id="btn-auto-format" class="btn btn-secondary">✨ AI Format</button>
+            <button id="btn-download" class="btn btn-primary">Export Image</button>
+        </div>
+    </div>
+
+    <script src="/static/text_story.js"></script>
+</body>
+</html>

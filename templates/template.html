@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Edit | Template Designer</title>
+    <link rel="stylesheet" href="/static/template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="workspace">
+        <div class="editor-panel">
+            <h2 class="panel-title">Forge Your Structure</h2>
+            
+            <div class="input-group">
+                <label>Template Requirements</label>
+                <textarea id="prompt-input" placeholder="E.g., A dark portfolio for a photographer with a 3-column gallery..."></textarea>
+            </div>
+            
+            <div class="controls">
+                <button class="btn">Grid Layout</button>
+                <button class="btn">Minimalist</button>
+                <button class="btn highlight">Forge Template</button>
+            </div>
+            
+            <a href="/" class="back-link">← Return to the Realm</a>
+        </div>
+
+        <div class="preview-panel">
+            <div class="blueprint-canvas">
+                <div class="blueprint-header">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+                <div class="blueprint-body">
+                    <div class="wireframe-box title-box">AWAITING COMMANDS</div>
+                    <div class="wireframe-row">
+                        <div class="wireframe-box small"></div>
+                        <div class="wireframe-box small"></div>
+                        <div class="wireframe-box small"></div>
+                    </div>
+                    <div class="wireframe-box large"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

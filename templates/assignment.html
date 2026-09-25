@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Edit | Assignment Maker</title>
+    <link rel="stylesheet" href="/static/assignment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Highlight.js for Code Coloring -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- HTML to PDF Library (JSDelivr) -->
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="workspace">
+        <div class="editor-panel">
+            <h2 class="panel-title">Choose Your Weapon</h2>
+            
+            <div class="input-group">
+                <label>Programming Language</label>
+                <select id="in-language" class="custom-select">
+                    <option value="Python">Python</option>
+                    <option value="C++">C++</option>
+                    <option value="Java">Java</option>
+                    <option value="C">C</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+            </div>
+            
+            <!-- Difficulty Selector Row -->
+            <div class="input-group" style="margin-top: 5px;">
+                <label>Difficulty Level</label>
+                <select id="in-difficulty" class="custom-select">
+                    <option value="easy">Easy (Direct Script / Basic)</option>
+                    <option value="medium" selected>Medium (Modular / Functions)</option>
+                    <option value="hard">Hard (Advanced / Optimized)</option>
+                </select>
+            </div>
+            
+            <!-- Generation Mode Selector -->
+            <div class="input-group" style="margin-top: 5px;">
+                <label>Generation Mode</label>
+                <select id="in-mode" class="custom-select">
+                    <option value="single">Single (Clear Previous)</option>
+                    <option value="multiple" selected>Multiple (Append Below)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Assignment Prompt</label>
+                <textarea id="in-prompt" placeholder="E.g., Write a program to find the shortest path in a graph using Dijkstra's algorithm..."></textarea>
+            </div>
+            
+            <div class="controls">
+                <button id="btn-generate" class="btn">Generate Code</button>
+                <button id="btn-export" class="btn highlight">Export to PDF</button>
+            </div>
+            
+            <a href="/" class="back-link">← Return to the Realm</a>
+        </div>
+
+        <div class="preview-panel" style="display: flex; flex-direction: column; width: 100%;">
+            <div class="pdf-canvas" id="export-canvas">
+                <div class="pdf-header" data-html2canvas-ignore>
+                    <div class="pdf-title">Assignment.pdf</div>
+                    <div class="pdf-icons">📄⬇️</div>
+                </div>
+                <div class="pdf-body">
+                    <!-- Javascript will inject the Tabs here -->
+                    <div id="canvas-container"></div>
+                </div>
+            </div> <!-- End of pdf-canvas -->
+
+            <!-- The Tab Slider Controls (Width set to 100% to naturally match canvas) -->
+            <div id="tab-controls" style="display: flex; justify-content: space-between; margin-top: 15px; width: 100%; color: #d4d4d4; font-family: 'Fira Code', monospace; font-size: 14px;">
+                <button id="btn-prev-tab" class="btn" style="padding: 8px 15px; width: auto; background: #2d2d2d; border: 1px solid #555; border-radius: 4px; cursor: pointer; transition: 0.2s;">&laquo; Previous</button>
+                <span id="tab-indicator" style="align-self: center; font-weight: bold; background: #1a1a1a; padding: 5px 15px; border-radius: 20px; border: 1px solid #333;">Question 1 / 1</span>
+                <button id="btn-next-tab" class="btn" style="padding: 8px 15px; width: auto; background: #2d2d2d; border: 1px solid #555; border-radius: 4px; cursor: pointer; transition: 0.2s;">Next &raquo;</button>
+            </div>
+        </div> <!-- End of preview-panel -->
+    </div> <!-- End of workspace -->
+
+    <!-- The Javascript link -->
+    <script src="/static/assignment.js"></script>
+</body>
+</html>

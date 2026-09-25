@@ -1,0 +1,307 @@
+/* =========================================
+   AURA EDIT: HIGHGARDEN MAGAZINE UI
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital@0;1&display=swap');
+
+body {
+    background-color: #08120b; /* Deep Forest Black/Green */
+    background-image: radial-gradient(circle at 50% 0%, #112a1a 0%, transparent 70%);
+    color: #eaddc5; /* Soft Parchment */
+    font-family: 'Lora', serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* --- Layout Grid --- */
+.magazine-workspace {
+    display: flex;
+    height: 100vh;
+    padding: 20px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* --- Left Panel: The Royal Ledger --- */
+.editor-panel {
+    flex: 1;
+    max-width: 450px;
+    background: rgba(10, 20, 14, 0.85);
+    border: 1px solid #d4af37; /* Gold Trim */
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.05), 0 15px 30px rgba(0,0,0,0.5);
+    overflow-y: auto;
+}
+
+.panel-header h2 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin: 0 0 5px 0;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #8c9e8e;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group textarea, .input-group select {
+    width: 100%;
+    background: #050a07;
+    border: 1px solid #2a3d30;
+    color: #eaddc5;
+    padding: 12px;
+    font-family: 'Lora', serif;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+/* --- Buttons --- */
+.action-row { display: flex; gap: 10px; }
+
+.btn-royal {
+    flex: 1;
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 12px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-royal:hover { background: rgba(212, 175, 55, 0.1); }
+.btn-royal.filled { background: #d4af37; color: #08120b; }
+.btn-royal.filled:hover { background: #ebd17a; }
+.btn-royal:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* --- Right Panel: The Canvas --- */
+.preview-panel {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: repeating-linear-gradient(45deg, #0a140d, #0a140d 10px, #0c180f 10px, #0c180f 20px);
+    border-radius: 8px;
+    border: 1px solid #1a2a20;
+    position: relative;
+}
+
+/* The A4 Magazine Page */
+.a4-canvas {
+    width: 450px;
+    height: 636px; /* A4 Ratio */
+    background: #fbf9f4; /* Parchment White */
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+/* The Hugging Face Background Image */
+.mag-bg-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.85; /* Slight transparency so text is readable */
+}
+
+/* The Text Overlay overlay */
+/* The Text Overlay & Border Frame */
+.mag-overlay {
+    position: relative;
+    z-index: 2;
+    /* Create a margin so the border sits nicely inside the page */
+    margin: 20px; 
+    height: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* --- Royal Border Options --- */
+.border-royal {
+    border: 6px double #d4af37; /* Double Gold */
+}
+
+.border-floral {
+    border: 2px solid #2a3d30;
+    outline: 1px solid #2a3d30;
+    outline-offset: -8px;
+    border-radius: 12px;
+}
+
+.border-minimal {
+    border: 1px solid #1a2a20; /* Thin Dark Line */
+}
+
+.border-none {
+    border: none;
+}
+
+.mag-issue {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #1a2a20;
+    text-align: center;
+    border-bottom: 1px solid #1a2a20;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.mag-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 900;
+    font-style: italic;
+    color: #08120b;
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+}
+
+.mag-headline {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    margin-top: auto; /* Pushes to bottom */
+    font-size: 28px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.mag-snippet {
+    font-family: 'Lora', serif;
+    color: #fbf9f4;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    border-left: 2px solid #d4af37;
+    padding-left: 10px;
+}
+/* =========================================
+   THE ROYAL ARCHIVE (PROJECT HUB)
+   ========================================= */
+.archive-hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.archive-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #d4af37;
+    margin-bottom: 40px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* The Base Card */
+.mag-card {
+    background: rgba(10, 20, 14, 0.85);
+    border: 1px solid #2a3d30;
+    border-radius: 8px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.mag-card:hover {
+    border-color: #d4af37;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.15);
+}
+
+/* The "New Magazine" Card */
+.mag-card-new {
+    background: rgba(17, 42, 26, 0.6); /* Deeper Tyrell Green */
+    border: 2px dashed #d4af37;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mag-card-new:hover {
+    background: rgba(17, 42, 26, 0.9);
+}
+
+.new-icon {
+    font-size: 60px;
+    color: #d4af37;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+/* Saved Project Card Content */
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: #eaddc5;
+    margin: 0 0 10px 0;
+}
+
+.card-date {
+    font-size: 12px;
+    color: #8c9e8e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Delete Button */
+.btn-delete {
+    background: rgba(200, 50, 50, 0.1);
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: auto;
+}
+
+.btn-delete:hover {
+    background: #ff6b6b;
+    color: #fff;
+}

@@ -1,0 +1,273 @@
+/* =========================================
+   ASSIGNMENT WORKSPACE (MARTELL THEME)
+   ========================================= */
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    height: 100vh;
+    color: #e5e5e5;
+    background-color: #0d0400;
+    
+    /* THE DORNE BACKGROUND */
+    background-image: url('/static/dorne.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    /* A very dark, warm crimson/brown shadow */
+    background: radial-gradient(circle at center, rgba(30, 10, 0, 0.75) 0%, rgba(10, 2, 0, 0.98) 100%);
+    z-index: 1;
+}
+
+.workspace {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 50px;
+    padding: 20px;
+}
+
+/* LEFT PANEL */
+.editor-panel {
+    background: rgba(20, 5, 0, 0.7); /* Deep dark maroon/brown */
+    backdrop-filter: blur(10px);
+    border: 1px solid #8a2be2;
+    border-color: #ff924c; /* Martell Orange border */
+    border-radius: 8px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-title {
+    margin: 0 0 10px 0;
+    color: #ffca3a; /* Desert Gold */
+    font-size: 24px;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(255, 202, 58, 0.4);
+    text-transform: uppercase;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #ff924c;
+    font-family: sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.custom-select {
+    width: 100%;
+    background: #1a0800;
+    border: 1px solid #662200;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    background: #1a0800;
+    border: 1px solid #662200;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
+    transition: all 0.3s;
+}
+
+textarea:focus, .custom-select:focus {
+    border-color: #ff924c;
+    box-shadow: 0 0 15px rgba(255, 146, 76, 0.2);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn {
+    flex: 1;
+    background: #1a0800;
+    color: #ffca3a;
+    border: 1px solid #662200;
+    padding: 12px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #331100;
+    color: #fff;
+    border-color: #ff924c;
+}
+
+.btn.highlight {
+    background: linear-gradient(135deg, #ff924c 0%, #cc4400 100%);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    letter-spacing: 1px;
+}
+
+.btn.highlight:hover {
+    box-shadow: 0 0 20px rgba(255, 146, 76, 0.5);
+}
+
+.back-link {
+    color: #884422;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #ffca3a;
+}
+
+/* RIGHT PANEL: PDF/Code Canvas */
+.preview-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styled to look like a modern PDF viewer or IDE sheet */
+.pdf-canvas {
+    width: 500px;
+    height: 650px;
+    background: #e6e6e6;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Changed from hidden to auto so the whole page scrolls! */
+}
+
+.pdf-header {
+    background: #2a2a2a;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.pdf-body {
+    padding: 40px;
+    flex: 1;
+    color: #111;
+    font-family: sans-serif;
+}
+
+.doc-title {
+    font-family: 'Cinzel', serif;
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    color: #8a1c1c; /* Deep red title on the PDF */
+    border-bottom: 2px solid #8a1c1c;
+    padding-bottom: 10px;
+}
+
+.doc-desc {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* The Code Editor inside the PDF */
+.code-block {
+    background: #1e1e1e; /* Dark IDE background */
+    border-radius: 6px;
+    padding: 20px;
+    font-family: 'Fira Code', monospace; /* Classic coding font */
+    font-size: 14px;
+    color: #d4d4d4;
+    line-height: 1.5;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.code-comment { color: #6a9955; }
+.code-keyword { color: #c586c0; font-weight: bold; }
+.code-func { color: #dcdcaa; }
+.code-string { color: #ce9178; }
+/* Scrollbar for long code outputs */
+.code-block::-webkit-scrollbar {
+    width: 8px;
+}
+.code-block::-webkit-scrollbar-track {
+    background: #1e1e1e; 
+}
+.code-block::-webkit-scrollbar-thumb {
+    background: #662200; 
+    border-radius: 4px;
+}
+/* --- THE INFINITE CANVAS BLOCKS --- */
+.assignment-block {
+    margin-bottom: 40px;
+    /* This tells the PDF exporter: DO NOT split this block across two pages! */
+    page-break-inside: avoid; 
+}
+
+/* --- NEW: The Red Output Heading --- */
+.question-heading {
+    font-family: sans-serif;
+    color: #8a1c1c; /* Martell Red to match the Question */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px; /* Creates the space below the code */
+    margin-bottom: 8px; /* Creates a small gap above the terminal */
+    text-align: left;
+}
+
+/* --- UPDATED: VS Code Terminal --- */
+.terminal-window {
+    background: #0c0c0c;
+    border-radius: 6px; /* Fully rounded corners now */
+    margin-top: 0; /* Removed the negative margin */
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    color: #cccccc;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    overflow: hidden;
+}
+
+.terminal-header {
+    color: #569cd6; /* VS Code Blue */
+    padding: 10px 15px 5px 15px;
+}
+
+.terminal-body {
+    padding: 0 15px 15px 15px;
+    color: #ce9178; /* Terminal output text color */
+    white-space: pre-wrap;
+}

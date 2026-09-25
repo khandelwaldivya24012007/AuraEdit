@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aura Edit | The Reach Editorial</title>
+    <link rel="stylesheet" href="/static/magazine.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div id="view-hub" class="archive-hub">
+        <h1 class="archive-title">The Royal Archives</h1>
+        
+        <div class="project-grid" id="project-grid">
+            </div>
+        
+        <a href="/" class="btn-royal" style="margin-top: 40px; text-decoration: none; flex: none; padding: 15px 30px;">← Return to Realm</a>
+    </div>
+
+    <div id="view-editor" style="display: none;">
+        <div class="magazine-workspace">
+            
+            <div class="editor-panel">
+                <div class="panel-header">
+                    <h2>The Reach Editorial</h2>
+                    <p style="color: #8c9e8e; font-size: 12px; margin: 0; font-style: italic;">Forge your next masterpiece.</p>
+                </div>
+        
+                <hr style="border: 0; border-top: 1px solid #2a3d30; margin: 10px 0;">
+        
+                <div class="input-group">
+                    <label>Magazine Title</label>
+                    <input type="text" id="in-title" value="Highgarden">
+                </div>
+        
+                <div class="input-group">
+                    <label>Cover Story Concept</label>
+                    <textarea id="in-story" rows="3" placeholder="e.g. A love story in the rain..."></textarea>
+                    
+                    <label style="margin-top: 10px;">Page Typography</label>
+                    <select id="in-font">
+                        <option value="'Cinzel', serif">Cinzel (Royal & Elegant)</option>
+                        <option value="'Playfair Display', serif">Playfair (Vogue Fashion)</option>
+                        <option value="'Montserrat', sans-serif">Montserrat (Modern Tech)</option>
+                        <option value="'Lora', serif">Lora (Classic Storybook)</option>
+                    </select>
+
+                    <button id="btn-ai-text" class="btn-royal" style="margin-top: 10px;">Summon Story (AI)</button>
+                </div>
+        
+                <div class="input-group" style="margin-top: 10px;">
+                    <label>Cover Art Style</label>
+                    <select id="in-style">
+                        <option value="cinematic photography, elegant, soft lighting">Cinematic Photograph</option>
+                        <option value="classic renaissance oil painting, highly detailed">Oil Painting</option>
+                        <option value="dark academia aesthetic, moody, vintage film">Dark Academia</option>
+                        <option value="vintage botanical illustration">Botanical Art</option>
+                    </select>
+                    
+                    <div class="action-row" style="margin-top: 10px;">
+                        <button id="btn-ai-img" class="btn-royal">Paint Art (AI)</button>
+                        <button id="btn-discard-img" class="btn-royal" style="color: #ff6b6b; border-color: #ff6b6b;">Discard Image</button>
+                    </div>
+
+                    <label style="margin-top: 15px;">Page Frame</label>
+                    <select id="in-border">
+                        <option value="border-royal">Royal Gold Double</option>
+                        <option value="border-floral">Emerald Elegant</option>
+                        <option value="border-minimal">Minimalist Ink</option>
+                        <option value="border-none">Parchment (No Frame)</option>
+                    </select>
+                </div>
+        
+                <div style="flex-grow: 1;"></div> 
+        
+                <div class="action-row">
+                    <button id="btn-back-hub" class="btn-royal">← Archives</button>
+                    <button id="btn-save" class="btn-royal">Save Draft</button>
+                    <button id="btn-publish" class="btn-royal filled">Publish</button>
+                </div>
+            </div>
+        
+            <div class="preview-panel" style="flex-direction: column; gap: 20px;">
+                
+                <div class="a4-canvas" id="export-canvas">
+                    <img id="out-bg" class="mag-bg-image" src="" style="display: none;" alt="Cover Art">
+                    <div class="mag-overlay border-royal">
+                        <div class="mag-issue" id="out-issue">Volume IV • House Tyrell</div>
+                        <h1 id="out-title" class="mag-title">Highgarden</h1>
+                        <h2 id="out-headline" class="mag-headline" style="color: #08120b;">Growing Strong</h2>
+                        <div id="out-snippet" class="mag-snippet" style="color: #1a2a20;">Your story begins here...</div>
+                    </div>
+                </div>
+
+                <div class="page-controls" style="display: flex; gap: 15px; align-items: center;">
+                    <button id="btn-prev-page" class="btn-royal" style="padding: 5px 15px;">←</button>
+                    <span id="page-indicator" style="font-family: 'Cinzel', serif; color: #d4af37; font-size: 14px;">Page 1 of 1</span>
+                    <button id="btn-next-page" class="btn-royal" style="padding: 5px 15px;">→</button>
+                    <button id="btn-add-page" class="btn-royal filled" style="padding: 5px 15px;">+ Add New Page</button>
+                </div>
+
+            </div>
+        
+        </div>
+    </div>
+
+<script src="/static/magazine.js"></script>
+</body>
+</html>

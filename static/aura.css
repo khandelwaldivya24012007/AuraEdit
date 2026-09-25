@@ -1,0 +1,555 @@
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    background: #000000;
+    color: #e5e5e5;
+    text-align: center;
+}
+
+/* =========================================
+   INTRO SECTION (Clean Cinematic Spotlight)
+   ========================================= */
+#intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* A smooth, dark gradient: warm dark center fading to pure black edges */
+    background: radial-gradient(circle at center, #231f1c 0%, #0a0807 60%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================
+   FORGED GOLD TEXT (Logo, Title, and Cards)
+   ========================================= */
+.logo, .title, .card span.text-content {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    
+    /* Refined Game of Thrones Gold: Light edges with a dark metallic core */
+    background: linear-gradient(
+        to bottom,
+        #f2d588 0%,       /* Bright top rim */
+        #c99a3c 30%,      /* Solid gold */
+        #4a2f0b 50%,      /* The dark horizontal strike through the middle */
+        #b08027 70%,      /* Deep gold reflection */
+        #e6c373 100%      /* Bright bottom rim */
+    );
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
+    /* TIGHT 3D SHADOW: A sharp, heavy drop shadow for metal thickness */
+    filter: drop-shadow(2px 5px 3px rgba(0, 0, 0, 0.95));
+    z-index: 2;
+}
+
+.logo {
+    font-size: 8vw; 
+    font-weight: 700;
+    letter-spacing: 12px;
+    margin: 0;
+}
+
+.title {
+    margin: 0 0 40px 0; 
+    font-size: 38px;
+    letter-spacing: 8px;
+}
+
+/* =========================================
+   MAIN SECTION & GRID
+   ========================================= */
+#main {
+    min-height: 100vh;
+    /* Deep castle darkness */
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 80%);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2; 
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); 
+    grid-template-rows: repeat(2, 220px); 
+    gap: 30px; 
+    width: 100%; 
+    max-width: 1200px;
+    margin: 0 auto; 
+    justify-content: center; 
+}
+
+/* =========================================
+   CARDS (Pure Dark Metal Slabs)
+   ========================================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px; 
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Smooth, dark forged metal background */
+    background: linear-gradient(135deg, #0d0d0d 0%, #1c1c1c 50%, #050505 100%);
+    
+    /* Deep metal bevel */
+    box-shadow: 
+        inset 0 0 0 1px #2a2a2a, 
+        inset 0 0 25px rgba(0,0,0,0.9), 
+        0 8px 20px rgba(0,0,0,0.8); 
+    border: 1px solid #110000;
+    
+    /* Text placement adjustments to leave room for sigils */
+    padding-top: 40px; 
+    padding-bottom: 80px; 
+    box-sizing: border-box; 
+}
+
+.card span.text-content {
+    display: block;
+    margin-bottom: auto; 
+    pointer-events: none;
+}
+
+/* Base hover movement */
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+/* =========================================
+   HOUSE SIGIL WATERMARKS (Hidden layer)
+   ========================================= */
+/* =========================================
+   HOUSE SIGIL WATERMARKS (Enhanced Visibility)
+   ========================================= */
+.card::before {
+    content: "";
+    position: absolute;
+    /* Positioned in the lower half of the card */
+    bottom: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* BIGGER SIZE: Increased from 70px to 140px */
+    width: 140px; 
+    height: 140px; 
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* VISIBILITY: Higher base opacity and sharper contrast */
+    opacity: 0.25; 
+    mix-blend-mode: lighten; /* Helps silver/white images pop on black */
+    
+    /* METAL FILTER: Makes images look like polished silver/steel */
+    filter: grayscale(100%) brightness(1.2) contrast(1.2) drop-shadow(0 0 10px rgba(255,255,255,0.1));
+    
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+/* 🐉 HOVER EFFECT: Sigil grows and lights up */
+.card:hover::before {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 0.7; /* Much more visible on hover */
+    filter: grayscale(100%) brightness(1.5) contrast(1.3) drop-shadow(0 0 20px rgba(255,255,255,0.2));
+}
+
+/* Ensure text stays on top and is readable */
+.card span.text-content {
+    margin-top: 20px; /* Pushes text higher */
+    margin-bottom: auto; 
+    z-index: 3; /* Above the sigil */
+}
+
+/* =========================================
+   GREAT HOUSES HOVER GLOWS & SIGIL IMAGES
+   ========================================= */
+
+/* 🐺 HOUSE STARK - Ice Blue */
+.card.stark:hover {
+    border-color: #7a8a99;
+    box-shadow: 
+        inset 0 0 25px rgba(122, 138, 153, 0.4), 
+        0 0 40px rgba(200, 230, 255, 0.15); 
+}
+.card.stark::before { background-image: url('direwolf.png'); }
+
+
+/* 🔥 HOUSE TARGARYEN - Blood Red */
+.card.targaryen:hover {
+    border-color: #8b0000;
+    box-shadow: 
+        inset 0 0 25px rgba(139, 0, 0, 0.6), 
+        0 0 40px rgba(255, 0, 0, 0.2); 
+}
+.card.targaryen::before { background-image: url('dragon.png'); }
+
+
+/* 🦁 HOUSE LANNISTER - Crimson & Gold */
+.card.lannister:hover {
+    border-color: #d4af37;
+    box-shadow: 
+        inset 0 0 25px rgba(212, 175, 55, 0.5), 
+        0 0 40px rgba(255, 215, 0, 0.1); 
+}
+.card.lannister::before { background-image: url('lion.png'); }
+
+
+/* 🌹 HOUSE TYRELL - Forest Green */
+.card.tyrell:hover {
+    border-color: #228b22;
+    box-shadow: 
+        inset 0 0 25px rgba(34, 139, 34, 0.4), 
+        0 0 40px rgba(153, 255, 153, 0.1); 
+}
+.card.tyrell::before { background-image: url('rose.png'); }
+
+
+/* 🦌 HOUSE BARATHEON - Storm Yellow (LARGER SIGIL) */
+.card.baratheon:hover {
+    border-color: #b3b300;
+    box-shadow: 
+        inset 0 0 25px rgba(179, 179, 0, 0.4), 
+        0 0 40px rgba(255, 255, 0, 0.05); 
+}
+
+.card.baratheon::before { 
+    background-image: url('stag.png'); 
+    
+    /* Make the Baratheon bounding box specifically larger */
+    width: 200px; 
+    height: 200px; 
+    
+    /* Lower it slightly so the taller antlers don't hit the text */
+    bottom: -10px; 
+}
+
+/* ☀️ HOUSE MARTELL - Sun Orange */
+.card.martell:hover {
+    border-color: #e67e22;
+    box-shadow: 
+        inset 0 0 25px rgba(230, 126, 34, 0.5), 
+        0 0 40px rgba(255, 140, 0, 0.1); 
+}
+.card.martell::before { background-image: url('sun.png'); }
+/* =========================================
+   CARDS (Pure Dark Metal Slabs)
+   ========================================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* FIX 1: This pushes the text to the TOP of the card */
+    justify-content: flex-start; 
+    padding-top: 35px; /* Controls exactly how far down the text sits */
+    
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px; 
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    background: linear-gradient(135deg, #0d0d0d 0%, #1c1c1c 50%, #050505 100%);
+    box-shadow: 
+        inset 0 0 0 1px #2a2a2a, 
+        inset 0 0 25px rgba(0,0,0,0.9), 
+        0 8px 20px rgba(0,0,0,0.8); 
+    border: 1px solid #110000;
+    box-sizing: border-box; 
+}
+
+.card span.text-content {
+    /* Cleaned up so it perfectly obeys the padding-top above */
+    margin: 0; 
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Base hover movement */
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+/* =========================================
+   HOUSE SIGIL WATERMARKS (The Background Hack)
+   ========================================= */
+.card::before {
+    content: "";
+    position: absolute;
+    bottom: 10px; /* Sits nicely at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px; 
+    height: 140px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* FIX 2: THE CSS MAGIC HACK FOR FAKE TRANSPARENCY */
+    mix-blend-mode: screen; /* This makes pure black completely invisible */
+    
+    /* Invert turns the light grey background dark and the sigil white. 
+       Contrast(3) forces the dark background to become pure invisible black! */
+    filter: invert(1) grayscale(100%) contrast(3) brightness(0.9);
+    
+    opacity: 0.35; 
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+/* 🐉 HOVER EFFECT: Sigil grows and lights up */
+.card:hover::before {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 0.8; 
+    /* Boosts the brightness of the silver when hovered */
+    filter: invert(1) grayscale(100%) contrast(3) brightness(1.3);
+}
+/* =========================================
+   🎬 CINEMATIC TRANSITION OVERLAY
+   ========================================= */
+#transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000000;
+    z-index: 9999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+#transition-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.transition-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Base text styling matches the main Logo */
+#transition-title, #transition-subtitle {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ❄️ TITLE: Same size as AURA EDIT */
+#transition-title {
+    font-size: 8vw; 
+    font-weight: 700;
+    letter-spacing: 12px;
+}
+
+/* ❄️ SUBTITLE: Smaller, faded in slightly later */
+#transition-subtitle {
+    font-size: 3vw;
+    font-weight: 400;
+    letter-spacing: 6px;
+    transition-delay: 1.2s; /* Waits 1.2 seconds before floating up */
+}
+
+/* Trigger the float animations */
+#transition-overlay.active #transition-title,
+#transition-overlay.active #transition-subtitle {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* 🐺 STARK TEXT - Snowy Ice */
+.stark-text {
+    background-image: linear-gradient(to bottom, #ffffff 0%, #cce0ff 100%);
+    filter: drop-shadow(0px 4px 10px rgba(255, 255, 255, 0.3));
+}
+/* 🦁 LANNISTER TEXT - Cersei's Bloody Red */
+.lannister-text {
+    background-image: linear-gradient(to bottom, #d90429 0%, #8a0303 50%, #3a0000 100%);
+    filter: drop-shadow(0px 4px 15px rgba(138, 3, 3, 0.6));
+}
+/* 🌹 TYRELL TEXT - Highgarden Gold & Emerald */
+.tyrell-text {
+    background-image: linear-gradient(to bottom, #f3e5ab 0%, #d4af37 40%, #228b22 70%, #004d00 100%);
+    filter: drop-shadow(0px 4px 15px rgba(34, 139, 34, 0.5));
+}
+
+/* 🦌 BARATHEON TEXT - Pure Storm Gold */
+.baratheon-text {
+    /* A rich, pure gold gradient from bright yellow to deep metallic gold */
+    background-image: linear-gradient(to bottom, #ffe600 0%, #d4af37 50%, #b8860b 100%);
+    /* A bright golden glow to lift it off the dark background */
+    filter: drop-shadow(0px 4px 15px rgba(212, 175, 55, 0.6));
+}
+/* ☀️ MARTELL TEXT - Sun Orange & Desert Blood */
+.martell-text {
+    background-image: linear-gradient(to bottom, #ffca3a 0%, #ff924c 40%, #ff595e 80%, #8a1c1c 100%);
+    filter: drop-shadow(0px 4px 20px rgba(255, 146, 76, 0.6));
+}
+
+/* =========================================
+   🎬 CINEMATIC TRANSITION OVERLAY
+   ========================================= */
+#transition-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #000000; /* Base color */
+    background-size: cover;
+    background-position: center;
+    z-index: 9999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+/* This creates a heavy dark shadow over the image so the text pops */
+#transition-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(10, 15, 20, 0.6) 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 0; 
+}
+
+.transition-content {
+    position: relative;
+    z-index: 1; /* Keeps text above the shadow filter */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+/* This creates a dark frame, but leaves the center clear for the image */
+/* This darkens the center to 50% black, lowering the overall brightness */
+#transition-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Changed the 0.1 to 0.5 here 👇 */
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 0; 
+}
+/* 🔥 TARGARYEN TEXT - Dragon Fire Gradient */
+.targaryen-text {
+    background-image: linear-gradient(to bottom, #ffaa00 0%, #ff4d4d 50%, #8b0000 100%);
+    filter: drop-shadow(0px 4px 15px rgba(255, 69, 0, 0.6));
+}
+/* =========================================
+   🎬 CINEMATIC TRANSITION OVERLAY
+   ========================================= */
+#transition-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #000000;
+    /* This ensures the image covers the whole screen */
+    background-size: cover; 
+    background-position: center;
+    z-index: 9999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+/* The Vignette Shadow - Light in the middle (0.4), dark on edges */
+#transition-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 0; 
+}
+
+.transition-content {
+    position: relative;
+    z-index: 1; /* Keeps text above the shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+/* =========================================
+   CARDS (Pure Dark Metal Slabs)
+   ========================================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-top: 35px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px; 
+    cursor: pointer;
+    
+    background: linear-gradient(135deg, #0d0d0d 0%, #1c1c1c 50%, #050505 100%);
+    box-shadow: inset 0 0 0 1px #2a2a2a, inset 0 0 25px rgba(0,0,0,0.9), 0 8px 20px rgba(0,0,0,0.8); 
+    border: 1px solid #110000;
+    box-sizing: border-box; 
+    
+    /* 🎬 NEW: Hide cards by default, pushed down 50 pixels */
+    opacity: 0;
+    transform: translateY(50px);
+    /* A slow, smooth 0.8s transition for when they first load in */
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 🎬 NEW: This class is added by JS to trigger the float-up */
+.card.visible {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* Base hover movement */
+.card.visible:hover {
+    /* Switches to a faster 0.3s transition so hovering feels snappy! */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(-5px) scale(1.03);
+}

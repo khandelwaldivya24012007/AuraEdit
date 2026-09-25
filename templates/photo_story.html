@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Edit | Photo → Story</title>
+    <link rel="stylesheet" href="/static/photo_story.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="workspace">
+        <div class="editor-panel">
+            <h2 class="panel-title">Forge Your Vision</h2>
+            
+            <div class="upload-box">
+                <p>Click to Upload Portrait</p>
+                <input type="file" id="image-upload" accept="image/*" hidden>
+            </div>
+            
+            <div class="controls">
+                <button class="btn">Valyrian Filter</button>
+                <button class="btn">Dragon Glass</button>
+                <button class="btn highlight">Export Story</button>
+            </div>
+            
+            <a href="/" class="back-link">← Return to the Realm</a>
+        </div>
+
+        <div class="preview-panel">
+            <div class="story-canvas">
+                <div class="photo-placeholder">
+                    <span>Awaiting Image...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

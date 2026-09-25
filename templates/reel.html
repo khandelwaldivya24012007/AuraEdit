@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Edit | AI Reel Generator</title>
+    <link rel="stylesheet" href="/static/reel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="workspace">
+        <div class="editor-panel">
+            <h2 class="panel-title">Hear Me Roar</h2>
+            
+            <div class="upload-box">
+                <p>Drop Multiple Photos Here</p>
+                <span class="sub-text">Up to 10 images</span>
+                <input type="file" id="image-upload" accept="image/*" multiple hidden>
+            </div>
+            
+            <div class="controls">
+                <button class="btn">Select Audio</button>
+                <button class="btn">Transition Style</button>
+                <button class="btn highlight">Generate Reel</button>
+            </div>
+            
+            <a href="/" class="back-link">← Return to the Realm</a>
+        </div>
+
+        <div class="preview-panel">
+            <div class="story-canvas">
+                <div class="video-placeholder">
+                    <div class="play-btn">▶</div>
+                    <span>Sequence Empty</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

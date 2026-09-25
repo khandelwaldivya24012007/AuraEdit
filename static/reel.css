@@ -1,0 +1,187 @@
+/* =========================================
+   AI REEL WORKSPACE (LANNISTER THEME)
+   ========================================= */
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    height: 100vh;
+    color: #e5e5e5;
+    background-color: #050505;
+    
+    /* THE RED KEEP BACKGROUND */
+    background-image: url('king.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    /* A very dark, oppressive shadow to make the UI pop */
+    background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 1;
+}
+
+.workspace {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 50px;
+    padding: 20px;
+}
+
+/* LEFT PANEL */
+.editor-panel {
+    background: rgba(15, 0, 0, 0.7); /* Deep dark red glass */
+    backdrop-filter: blur(10px);
+    border: 1px solid #8a0303;
+    border-radius: 8px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-title {
+    margin: 0;
+    color: #d4af37; /* Lannister Gold */
+    font-size: 26px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    text-transform: uppercase;
+}
+
+.upload-box {
+    width: 100%;
+    height: 160px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px dashed #8a0303;
+    color: #d4af37;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-box p {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.upload-box .sub-text {
+    font-size: 12px;
+    color: #888;
+    font-family: sans-serif;
+}
+
+.upload-box:hover {
+    background: rgba(138, 3, 3, 0.15);
+    border-color: #d4af37;
+    box-shadow: 0 0 20px rgba(138, 3, 3, 0.4);
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    flex: 1;
+    background: #110000;
+    color: #d4af37;
+    border: 1px solid #4a0000;
+    padding: 12px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #2a0000;
+    border-color: #8a0303;
+    color: #fff;
+}
+
+.btn.highlight {
+    background: linear-gradient(135deg, #8a0303 0%, #4a0000 100%);
+    color: #d4af37;
+    font-weight: bold;
+    border: 1px solid #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn.highlight:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    color: #fff;
+}
+
+.back-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #d4af37;
+}
+
+/* RIGHT PANEL: Video Canvas */
+.preview-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-canvas {
+    width: 360px;
+    height: 640px;
+    background: linear-gradient(135deg, #110000 0%, #050000 100%);
+    border: 2px solid #8a0303;
+    border-radius: 16px; 
+    box-shadow: 0 20px 60px rgba(138,3,3,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #4a0000;
+}
+
+.play-btn {
+    font-size: 48px;
+    color: #8a0303;
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.play-btn:hover {
+    color: #d4af37;
+    transform: scale(1.1);
+}
+
+.video-placeholder span {
+    font-family: sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
